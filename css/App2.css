@@ -1,0 +1,97 @@
+h1{
+    text-align:center;
+}
+#pg1btn1, #pg1btn2, #pg1btn3, #pg1btn4, #pg1btn5{
+  height: 50px;
+}
+#divMap {
+  width:100%;
+  height:1000px;
+}
+#form2{
+  width:49%;
+  left:100%;
+  height: 5px;
+}
+#pg5btn1, #pg6btn1, #pg6btn2, #pg5btn4, #pg8btn1, #pg10btn1, #pg11btn1, #pg11btn2, #pg12btn1{
+  height: 20px;
+}
+#pg8btn2, #pg8btn3{
+  width: 100%;
+  height: 1000px;
+  font-size: 45px;
+  top: 50%;
+  text-align: center;
+}
+#block1,#block2,#block3,#block4{
+  width: 50%;
+  height: 1052px;
+}
+.ui-header{
+  height: 85px;
+}
+#pg5btn2, #pg5btn3{
+  width: 100%;
+  height: 1000px;
+  font-size: 45px;
+  top: 50%;
+  text-align: center;
+}
+#searchHead{
+  height: auto;
+}
+#routeName{
+  font-size: 20px;
+  height: 60px;
+}
+#busTimeId{
+  font-size: 20px;
+}
+#red,#blue,#g,#brn,#p,#y,#pnk,#o,.red,.blue,.g,.brn,.p,.y,.pnk,.o{
+  border: none !important;
+  font-size:35px !important;
+  text-shadow: -2px 2px 3px black !important;
+}
+#red,.red{
+  background-color:#E81911 !important;
+}
+#blue,.blue{
+  background-color:#37A5FF !important;
+}
+#g,.g{
+  background-color:#1ECF3E !important;
+}
+#brn,.brn{
+  background-color:#7D4D26 !important;
+}
+#p,.p{
+  background-color:#7C148A !important;
+}
+#y,.y{
+  background-color:yellow !important;
+}
+#pnk,.pnk{
+  background-color:#ff33cc !important;
+}
+#o,.o{
+  background-color:#ff8000 !important;
+}
+#trainStop{
+  font-size: 100%;
+}
+#busTimes{
+  text-align:center;
+  font-size:30px;
+}
+#busRoutes, .busRoutes, #routeNums{
+  font-size: 20px;
+  height: 80px;
+}
+#map {
+  height: 100%;
+  float: left;
+  width: 63%;
+}
+#busTimeHeader{
+  height: 40px !important;
+}

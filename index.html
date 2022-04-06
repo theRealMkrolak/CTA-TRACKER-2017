@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <meta charset="utf-8">
+<meta name="viewport" conttent="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="js/Map.js"></script>
+<script type="text/javascript" src="js/busInfo.js"></script>
+<script type="text/javascript" src="js/trainInfo.js"></script>
+<script type="text/javascript" src="js/Settings.js"></script>
+<link rel="stylesheet" href="css/App2.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+
+</head> 
+<body>
+  
+<div data-role="page" id="pageOne">
+  <div data-role="header" data-theme="b"><h1>CTA Transit App</h1>
+  </div>
+    <div data-role="main">
+        <a href="#pageMap" id="pg1btn1" class="ui-btn ui-icon-navigation ui-btn-icon-bottom ui-btn-e">MAP</a>
+        <a href="#pageBusSearch" id="pg1btn2" class="ui-btn ui-icon-clock ui-btn-icon-bottom ui-btn-e">BUS TIMES</a>
+        <a href="#pageTrainSearch" id="pg1btn3" class="ui-btn ui-icon-clock ui-btn-icon-bottom ui-btn-e">TRAIN TIMES</a>
+        <a href="#pageSetting" id="pg1btn5" class="ui-btn ui-icon-gear ui-btn-icon-bottom ui-btn-e">SETTINGS</a>
+    </div>
+    <div data-role="footer" data-theme="b">
+      
+    </div>
+</div>
+
+
+<div data-role="page" id="searchTypes">
+  <div data-role="header" data-theme="b">
+    <a href="#" id="pg8btn1" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left"></a>
+    <h1>Search</h1>
+  </div>
+  <div data-role="main">
+    <div class="ui-block-a" id="block3">
+      <div data-role="header" data-theme="e">
+        <div>
+          <a href="#pageBusSearch" id="pg8btn2" class="ui-btn ui-icon-search ui-btn-icon-top">BUS</a>
+        </div>
+      </div>
+    </div>
+    <div class="ui-block-b" id="block4">
+      <div data-role="header" data-theme="e">
+        <div>
+          <a href="#pageTrainSearch" id="pg8btn3" class="ui-btn ui-icon-search ui-btn-icon-top">TRAIN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-role="footer" data-theme="e">
+  </div>
+</div>
+
+
+<div data-role="page" id="pageMap" data-theme="b">
+  <div data-role="navbar">
+    <div data-role="collapsible" data-inset="false">
+      <h1>Pages</h1>
+        <ul>
+          <li><a href="#" id="pg2btn1" data-icon="back" data-rel="back"></a></li>
+          <li><a href="#pageOne" id="pg2btn2" data-icon="home"></a></li>
+          <li><a href="#searchTypes" id="pg2btn3" data-icon="search"></a></li>
+        </ul>
+    </div>
+  </div>
+  <div data-role="header" data-theme="e">
+    <h1>Map</h1>
+  </div>
+  <div data-role="main">
+    <div id="divMap"></div>
+    <div id="total"></div>
+    <div id="right-panel"></div>
+  </div>
+</div>
+
+
+<div data-role="page" id="pageBusSearch" data-theme="b">
+  <div data-role="navbar">
+    <div data-role="collapsible" data-inset="false">
+      <h1>Pages</h1>
+      <ul>
+        <li><a href="#" id="pg3btn1" data-icon="back" data-rel="back"></a></li>
+        <li><a href="#pageOne" id="pg3btn2" data-icon="home"></a></li>
+        <li><a href="#pageMap" id="pg3btn3" data-icon="navigation"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div data-role="header" id="searchHead" data-theme="e">
+    <h1>Search</h1>
+    <form class="ui-filterable">
+      <input id="form1" data-type="search" placeholder="Search">
+    </form>  
+  </div>
+  <div data-role="main">
+    <div id="demo"></div>
+  </div>
+</div>
+
+
+<div data-role="page" id="showBusDirection" data-theme="b">
+  <div data-role="header" id="routeName">
+    <a href="#" id="pg5btn1" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left"></a>
+    <h1 id="busDirId"></h1>
+    <a href="#pageBusSearch" id="pg5btn4" class="ui-btn ui-icon-search ui-btn-icon-left"></a>
+  </div>
+  <div data-role="header" data-theme="e">
+    <h1>Bus Direction</h1>
+  </div>
+  <div data-role="main">
+    <div class="ui-block-a" id="block1">
+        <div data-role="header" data-theme="b">
+          <div id="direction1"></div>
+        </div>
+    </div>
+    <div class="ui-block-b" id="block2">
+      <div data-role="header" data-theme="b">
+        <div id="direction2"></div>
+      </div>
+    </div>
+  </div>
+  <div data-role="footer" data-theme="b">
+  </div>
+</div>
+  
+  
+<div data-role="page" id="showBusStops" data-theme="b">
+  <div data-role="header" data-theme="b">
+    <a href="#" id="pg6btn1" data-theme="b" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left"></a>
+    <h1>Bus Stops</h1>
+    <a href="#pageBusSearch" id="pg6btn2" class="ui-btn ui-icon-search ui-btn-icon-left"></a>
+  </div>
+  <div data-role="header" id="searchHead" data-theme="e">
+    <form class="ui-filterable">
+      <input id="form2" data-type="search" placeholder="Search">
+    </form>
+  </div>
+  <div data-role="main" data-theme="e">
+    <div id="busStop"></div>
+  </div>
+</div>
+  
+  
+<div data-role="page" id="showBusTimes" data-theme="b">
+  <div data-role="header" id="busTimeHeader" data-theme="b">
+    <h1>Bus Times</h1>
+  </div>
+  <div data-role="navbar" data-theme="b">
+    <ul >
+      <li><a href="#" id="pg7btn1" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-top"></a></li>
+      <li><a href="#pageBusSearch" id="pg7btn2" class="ui-btn ui-icon-search ui-btn-icon-top"></a></li>
+      <li><a id="pg7btn3" class="ui-btn ui-icon-recycle ui-btn-icon-top" onclick="refreshBus()"></a></li>
+    </ul>
+  </div>
+  <div data-role="header" data-theme="e">
+    <h1 id="busTimeId"></h1>
+  </div>
+  <div data-role="main" data-theme="b">
+    <div id="busTimes">There Are No Buses At This Time</div>
+  </div>
+</div>
+
+
+<div data-role="page" id="pageTrainSearch" data-theme="b">
+  <div data-role="navbar">
+    <div data-role="collapsible" data-inset="false">
+      <h1>Pages</h1>
+      <ul>
+        <li><a href="#" id="pg9btn1" data-icon="back" data-rel="back"></a></li>
+        <li><a href="#pageOne" id="pg9btn2" data-icon="home"></a></li>
+        <li><a href="#pageMap" id="pg9btn3" data-icon="navigation"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div data-role="header" id="searchHead" data-theme="e">
+    <h1>Search</h1>
+    <form class="ui-filterable">
+      <input id="form3" data-type="search" placeholder="Search">
+    </form>
+  </div>
+  <div data-role="main">
+    <div id="trains">
+      <ul data-role='listview' data-filter='true' data-input='#form3'>
+        <li id="red"><a href="#showTrainStops" data-transition="slide" id="red">Red Line</a></li>
+        <li id="blue"><a href="#showTrainStops" data-transition="slide" id="blue">Blue Line</a></li>
+        <li id="g"><a href="#showTrainStops" data-transition="slide" id="g">Green Line</a></li>
+        <li id="brn"><a href="#showTrainStops" data-transition="slide" id="brn">Brown Line</a></li>
+        <li id="p"><a href="#showTrainStops" data-transition="slide" id="p">Purple Line</a></li>
+        <li id="y"><a href="#showTrainStops" data-transition="slide" id="y">Yellow Line</a></li>
+        <li id="pnk"><a href="#showTrainStops" data-transition="slide" id="pnk">Pink Line</a></li>
+        <li id="o"><a href="#showTrainStops" data-transition="slide" id="o">Orange Line</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+  
+
+<div data-role="page" id="showTrainStops">
+  <div data-role="header" data-theme="b">
+    <a href="#" id="pg10btn1" data-theme="b" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left"></a>
+    <h1>Show Stops</h1>
+  </div>
+  <div data-role="header" id="searchHead" data-theme="e">
+    <form class="ui-filterable">
+      <input id="form4" data-type="search" placeholder="Search">
+    </form>
+  </div>
+  <div data-role="main">
+    <div id="trainStops"></div>
+  </div>
+</div>
+
+
+<div data-role="page" id="showTrainTimes">
+  <div data-role="header" data-theme="b">
+    <a href="#" id="pg11btn1" data-theme="b" data-rel="back" class="ui-btn ui-icon-back ui-btn-icon-left"></a>
+    <h1>Train Times</h1>
+    <a id="pg11btn2" data-theme="b" class="ui-btn ui-icon-recycle ui-btn-icon-right" onclick="refresh()"></a>
+  </div>
+  <div data-role="header" data-theme="e">
+    <h1 id="trainStop"></h1>
+  </div>
+  <div data-role="main">
+    <div id="trainTimes"></div>
+  </div>
+</div>
+
+
+<div data-role="page" id="pageSetting" data-theme="b">
+  <div data-role="navbar">
+    <ul>
+     <li><a href="#" id="pg4btn2" data-icon="back" data-rel="back"></a></li>
+     <li><a href="#pageOne" id="pg4btn1" data-icon="home"></a></li>
+    </ul>
+  </div>
+  <div data-role="header" data-theme="e" id="settingH">
+    <h1>Settings</h1>
+  </div>
+  <div data-role="main">
+    
+  </div>
+</div>
+</body>
+</html>
